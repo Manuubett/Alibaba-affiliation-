@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- 
+    ======================================================
+    SITEMAP INDEX / DESIGN FOR ALIBABA EXPRESS GALLERY
+    ======================================================
+    This sitemap includes:
+    - Static core pages (home, categories, about)
+    - Dynamic product URLs (with image metadata)
+    - Category/tag pages
+    - Lastmod priorities based on update frequency
+    
+    Generate dynamically from your CMS / Firebase.
+    Replace example URLs with your actual domain.
+    ======================================================
+  -->
+
+  <!-- *************** STATIC / ALWAYS HIGH PRIORITY *************** -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.alibabaexpress-gallery.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.alibabaexpress-gallery.com/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.alibabaexpress-gallery.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.alibabaexpress-gallery.com/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.alibabaexpress-gallery.com/" />
+  </url>
+
+  <!-- About / info page (static) -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/about</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Contact / support -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/contact</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Privacy policy – important for compliance -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/privacy</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Terms of service -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/terms</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+
+  <!-- *************** CATEGORY PAGES (HIGH PRIORITY) *************** -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/category/electronics</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.alibabaexpress-gallery.com/assets/cat-electronics.jpg</image:loc>
+      <image:title>Electronics category – Alibaba Express</image:title>
+      <image:caption>Wholesale smartphones, headphones, gadgets</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/category/clothing</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/category/shoes</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/category/watches</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/category/jewelry</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/category/sports</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/category/home</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+
+  <!-- *************** STATIC SEARCH / FILTER PAGES (OPTIONAL) *************** 
+       Only if you have dedicated landing pages for popular searches -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/search/dropshipping</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/search/wholesale</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+
+  <!-- *************** PRODUCT PAGES (DYNAMIC – GENERATED FROM FIRESTORE) *************** 
+       EXAMPLE PLACEHOLDERS. Replace with loop over your 'items' collection. 
+       Include image:image tags for each product image – helps Google Images SEO.
+  -->
+
+  <!-- Product 1: Smart Watch -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/product/smart-watch-ultra-2026</loc>
+    <lastmod>2026-03-17</lastmod>   <!-- update when price/stock changes -->
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fwatch1.jpg?alt=media</image:loc>
+      <image:title>Smart Watch Ultra 2026 – front view</image:title>
+      <image:caption>1.8” AMOLED display, black silicone strap</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fwatch2.jpg?alt=media</image:loc>
+      <image:title>Smart Watch Ultra – side buttons</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fwatch3.jpg?alt=media</image:loc>
+      <image:title>Smart Watch Ultra – back heart rate sensor</image:title>
+    </image:image>
+  </url>
+
+  <!-- Product 2: Wireless Earbuds -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/product/pro-wireless-earbuds-x7</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fbuds1.jpg?alt=media</image:loc>
+      <image:title>Pro Wireless Earbuds X7 – charging case</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fbuds2.jpg?alt=media</image:loc>
+      <image:title>Earbuds left and right</image:title>
+    </image:image>
+  </url>
+
+  <!-- Product 3: Men's Running Shoes -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/product/air-max-running-shoes-blue</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fshoe1.jpg?alt=media</image:loc>
+      <image:title>Air Max Running Shoes – blue/orange</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fshoe2.jpg?alt=media</image:loc>
+      <image:title>Side view with sole detail</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fshoe3.jpg?alt=media</image:loc>
+      <image:title>Pair of shoes on white background</image:title>
+    </image:image>
+  </url>
+
+  <!-- Product 4: Casual Denim Jacket -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/product/mens-casual-denim-jacket</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fjacket1.jpg?alt=media</image:loc>
+      <image:title>Men's denim jacket front</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fjacket2.jpg?alt=media</image:loc>
+      <image:title>Jacket back detail</image:title>
+    </image:image>
+  </url>
+
+  <!-- Product 5: Silicone Cooking Utensils Set -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/product/kitchen-utensils-set-12pcs</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fkitchen1.jpg?alt=media</image:loc>
+      <image:title>12pc silicone kitchen utensils set</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/reconnect-10733.appspot.com/o/products%2Fkitchen2.jpg?alt=media</image:loc>
+      <image:title>Utensils hanging on rack</image:title>
+    </image:image>
+  </url>
+
+  <!-- *************** BLOG / ARTICLES (IF YOU HAVE) *************** -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/blog/dropshipping-trends-2026</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/blog/how-to-source-from-alibaba</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- *************** GENERIC PRODUCT LISTING (ALL PRODUCTS) – optional *************** 
+       Use if you have a “shop all” page distinct from homepage. -->
+  <url>
+    <loc>https://www.alibabaexpress-gallery.com/products</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+
+  <!-- 
+    =========================================================
+    DYNAMIC GENERATION NOTES (for developers)
+    =========================================================
+    - Query Firestore collection 'items' to generate product URLs.
+    - For each product, use:
+        <loc>https://www.alibabaexpress-gallery.com/product/{slug}</loc>
+        <lastmod> from product.updatedAt or product.lastModified (fallback to today)</lastmod>
+        <image:image> for every URL in product.images array.
+    - Include up to 1000 images per product (but 5-10 is typical).
+    - For categories, generate from your categories list.
+    - Update lastmod when new products arrive or prices change.
+    - Keep sitemap under 50MB or 50,000 URLs – split into sitemap index if larger.
+    - Use hreflang only if you have multi-language versions.
+    =========================================================
+  -->
+
+</urlset>
