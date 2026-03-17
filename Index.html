@@ -3,47 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alibaba Express · Cached Store</title>
+  
+  <!-- ⬇️⬇️⬇️ Alibaba / e‑commerce enhanced SEO meta tags ⬇️⬇️⬇️ -->
+  <!-- Primary keywords & description – optimised for Alibaba, express, global sourcing -->
+  <meta name="keywords" content="Alibaba Express, wholesale products, China electronics, bulk order, dropshipping, supplier directory, global sourcing, Alibaba affiliate, product gallery, factory price, fast shipping">
+  <meta name="description" content="Discover Alibaba Express wholesale collection: electronics, fashion, home goods. Source directly from suppliers with real‑time gallery & affiliate buy links.">
+  <!-- Author & revisit -->
+  <meta name="author" content="Alibaba Express ">
+  <meta name="revisit-after" content="1 day">
+  <!-- Robots: index & follow (explicit) -->
+  <meta name="robots" content="index, follow">
+  <!-- GEO / regional (can help with localised search) – adjust if needed -->
+  <meta name="geo.region" content="CN">
+  <meta name="geo.placename" content="Global">
+  <!-- Optional: verify for Google & Bing (placeholder – replace if you own verification) -->
+  <meta name="google-site-verification" content="xxxxxxxxxxxxxxxxxxxxxx" />
+  <meta name="msvalidate.01" content="xxxxxxxxxxxxxxxxxxxxxx" />
+  <!-- Open Graph / Facebook / LinkedIn – rich sharing -->
+  <meta property="og:title" content="Alibaba Express · Global Product Gallery">
+  <meta property="og:description" content="Real‑time wholesale gallery with supplier products. Search electronics, fashion, and more – direct affiliate access.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.alibabaexpress-gallery.com">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Alibaba+Express+Gallery">
+  <meta property="og:site_name" content="Alibaba Express Gallery">
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alibaba Express · Product Gallery">
+  <meta name="twitter:description" content="Discover trending wholesale products with real images and affiliate order links.">
+  <meta name="twitter:image" content="https://via.placeholder.com/1200x630?text=Alibaba+Express">
+  <!-- ⬆️⬆️⬆️ end of Alibaba SEO block ⬆️⬆️⬆️ -->
+
+  <title>Alibaba Express · Product Gallery – Wholesale & Dropship</title>
   <!-- Firebase 9 compat & Font Awesome -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* (styles unchanged – same Alibaba look) */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
     body { background-color: #f0f3f7; }
+    
+    /* Top bar */
     .top-bar { background: #1b2f4c; color: white; font-size: 0.85rem; padding: 8px 5%; display: flex; justify-content: space-between; flex-wrap: wrap; border-bottom: 1px solid #2b405e; }
     .top-links a { color: #ddd; margin-right: 20px; text-decoration: none; font-weight: 500; }
     .top-links a:hover { color: white; }
     .user-links a { color: #ddd; margin-left: 20px; text-decoration: none; }
+    
+    /* Main header */
     .main-header { background: white; padding: 18px 5%; display: flex; align-items: center; flex-wrap: wrap; gap: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); border-bottom: 1px solid #e5eef5; }
     .logo-area { display: flex; align-items: center; gap: 5px; }
     .logo-icon { font-size: 2.2rem; color: #ff6a00; }
     .logo-text { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.5px; }
     .logo-text span { color: #ff6a00; }
-    .logo-small { font-size: 0.8rem; color: #2c5b8c; margin-left: 5px; font-weight: 400; }
     .search-bar { flex: 1; min-width: 280px; display: flex; border: 2px solid #ff6a00; border-radius: 40px; overflow: hidden; background: white; }
     .search-bar input { flex: 1; padding: 14px 20px; border: none; outline: none; font-size: 1rem; }
     .search-bar button { background: #ff6a00; border: none; color: white; padding: 0 30px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.15s; display: flex; align-items: center; gap: 8px; }
     .search-bar button:hover { background: #e55c00; }
-    .cart-icon { background: #f2f8ff; padding: 10px 18px; border-radius: 40px; font-weight: 600; color: #1b2f4c; }
-    .cart-icon i { color: #ff6a00; margin-right: 6px; }
+    
+    /* Category strip */
     .category-strip { background: white; padding: 12px 5%; display: flex; flex-wrap: wrap; gap: 24px; border-bottom: 1px solid #e5eef5; font-size: 0.95rem; font-weight: 500; }
     .category-strip a { color: #2f4858; text-decoration: none; display: flex; align-items: center; gap: 8px; }
     .category-strip a:hover { color: #ff6a00; }
     .category-strip a i { color: #ff6a00; width: 18px; }
+    
+    /* Active filters */
     .active-filters { padding: 16px 5% 4px; display: flex; gap: 15px; flex-wrap: wrap; font-size: 0.9rem; }
     .filter-tag { background: white; border-radius: 40px; padding: 6px 16px; border: 1px solid #cbdae6; display: inline-flex; align-items: center; gap: 8px; }
     .clear-search { color: #ff6a00; font-weight: 600; cursor: pointer; }
-    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; padding: 25px 5% 40px; }
+    
+    /* Products grid */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; padding: 25px 5% 40px; }
+    
+    /* Product card with gallery */
     .product-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: 0.2s; border: 1px solid #e7edf3; display: flex; flex-direction: column; }
     .product-card:hover { transform: translateY(-6px); box-shadow: 0 18px 30px -8px rgba(0,50,70,0.15); border-color: #d6e0e9; }
-    .image-wrapper { position: relative; background: #f8fafc; padding: 10px 10px 0 10px; }
-    .product-image { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; background: #edf2f7; transition: 0.18s; border: 1px solid #eaeff5; }
-    .multi-image-indicator { display: flex; justify-content: center; gap: 6px; margin: 8px 0 6px; }
-    .dot { width: 8px; height: 8px; background: #cbd6e4; border-radius: 50%; transition: 0.1s; }
-    .dot.active { background: #ff6a00; width: 18px; border-radius: 10px; }
-    .product-info { padding: 14px 14px 18px; display: flex; flex-direction: column; flex: 1; }
+    
+    /* Gallery section */
+    .gallery-container { position: relative; background: #f8fafc; padding: 10px; }
+    .main-image { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; cursor: pointer; transition: 0.2s; }
+    .thumbnail-strip { display: flex; gap: 8px; margin-top: 10px; padding: 0 5px; overflow-x: auto; scrollbar-width: thin; }
+    .thumbnail-strip img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; cursor: pointer; border: 2px solid transparent; transition: 0.1s; }
+    .thumbnail-strip img:hover { border-color: #ff6a00; }
+    .thumbnail-strip img.active-thumb { border-color: #ff6a00; }
+    
+    /* Navigation arrows for gallery */
+    .gallery-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; left: 0; display: flex; justify-content: space-between; padding: 0 15px; pointer-events: none; }
+    .nav-arrow { background: rgba(255,255,255,0.9); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.1s; }
+    .nav-arrow:hover { background: white; transform: scale(1.1); }
+    .image-counter { position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.6); color: white; padding: 4px 12px; border-radius: 30px; font-size: 0.8rem; font-weight: 500; }
+    
+    /* Product info */
+    .product-info { padding: 16px; display: flex; flex-direction: column; flex: 1; }
     .product-title { font-weight: 500; font-size: 1rem; color: #1c2f44; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 44px; margin-bottom: 8px; }
     .price-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin: 5px 0 4px; }
     .current-price { font-size: 1.5rem; font-weight: 700; color: #d94b1e; }
@@ -53,13 +102,26 @@
     .shipping { font-size: 0.8rem; color: #5f7d9c; margin: 4px 0 6px; }
     .order-btn { background: #ff6a00; color: white; border: none; border-radius: 40px; padding: 12px 0; font-weight: 600; font-size: 0.95rem; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 8px; transition: 0.15s; }
     .order-btn:hover { background: #e55c00; }
+    
+    /* Lightbox modal for fullscreen gallery */
+    .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; }
+    .lightbox.active { display: flex; }
+    .lightbox-content { position: relative; max-width: 90%; max-height: 90%; }
+    .lightbox-image { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 8px; }
+    .lightbox-close { position: absolute; top: -40px; right: 0; color: white; font-size: 2rem; cursor: pointer; background: none; border: none; }
+    .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; left: 0; display: flex; justify-content: space-between; padding: 0 20px; }
+    .lightbox-nav button { background: rgba(255,255,255,0.2); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: 0.1s; }
+    .lightbox-nav button:hover { background: rgba(255,255,255,0.4); }
+    .lightbox-counter { position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%); color: white; font-size: 0.9rem; }
+    
     .no-products { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: #67829c; font-size: 1.2rem; background: white; border-radius: 40px; }
     footer { background: #132433; color: #9bb1c7; padding: 30px 5%; text-align: center; font-size: 0.9rem; border-top: 1px solid #1f3a52; }
+    
     @media (max-width: 700px) { .main-header { flex-direction: column; align-items: stretch; } .search-bar button span { display: none; } }
   </style>
 </head>
 <body>
-  <!-- top bar (same) -->
+  <!-- Top bar -->
   <div class="top-bar">
     <div class="top-links">
       <a href="#">AliExpress</a>
@@ -72,23 +134,19 @@
     </div>
   </div>
 
-  <!-- header with search (same) -->
+  <!-- Header with search -->
   <div class="main-header">
     <div class="logo-area">
       <i class="fab fa-alipay logo-icon"></i>
       <div class="logo-text">Alibaba<span>Express</span></div>
-      <span class="logo-small">affiliate store</span>
     </div>
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search for shoes, gadgets, fashion..." value="">
+      <input type="text" id="searchInput" placeholder="Search products..." value="">
       <button id="searchBtn"><i class="fas fa-search"></i> <span>Search</span></button>
-    </div>
-    <div class="cart-icon">
-      <i class="fas fa-shopping-cart"></i> Cart
     </div>
   </div>
 
-  <!-- category strip -->
+  <!-- Category strip -->
   <div class="category-strip">
     <a href="#"><i class="fas fa-mobile-alt"></i> Electronics</a>
     <a href="#"><i class="fas fa-tshirt"></i> Clothing</a>
@@ -99,17 +157,30 @@
     <a href="#"><i class="fas fa-home"></i> Home</a>
   </div>
 
-  <!-- active filter tag -->
+  <!-- Active filter tag -->
   <div class="active-filters" id="activeFilterArea" style="display: none;">
-    <div class="filter-tag" id="searchTag">
+    <div class="filter-tag">
       <span>🔍 <span id="searchTermDisplay"></span></span>
       <span class="clear-search" id="clearSearchBtn"><i class="fas fa-times-circle"></i> clear</span>
     </div>
   </div>
 
-  <!-- product grid -->
+  <!-- Product grid -->
   <div id="productsContainer" class="products-grid">
-    <div class="no-products"><i class="fas fa-spinner fa-pulse"></i> Loading cached products...</div>
+    <div class="no-products"><i class="fas fa-spinner fa-pulse"></i> Loading products...</div>
+  </div>
+
+  <!-- Lightbox for fullscreen gallery -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="closeLightbox"><i class="fas fa-times"></i></button>
+      <img src="" alt="" class="lightbox-image" id="lightboxImage">
+      <div class="lightbox-nav">
+        <button id="prevImage"><i class="fas fa-chevron-left"></i></button>
+        <button id="nextImage"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="lightbox-counter" id="imageCounter"></div>
+    </div>
   </div>
 
   <footer>
@@ -127,18 +198,16 @@
         appId: "1:902709752297:web:b89e694688d25472ac1b78"
       };
       firebase.initializeApp(firebaseConfig);
-
-      // 🔥 Enable Firestore persistent cache (makes subsequent loads instant,
-      //    and only fetches new/changed documents from the server)
       const db = firebase.firestore();
-      db.enablePersistence({ synchronizeTabs: true })
-        .catch(err => {
-          if (err.code === 'failed-precondition') {
-            console.warn('Persistence failed: multiple tabs open at once');
-          } else if (err.code === 'unimplemented') {
-            console.warn('Browser does not support persistence');
-          }
-        });
+      
+      // Enable persistence for offline caching
+      db.enablePersistence({ synchronizeTabs: true }).catch(err => {
+        if (err.code === 'failed-precondition') {
+          console.warn('Persistence failed: multiple tabs open');
+        } else if (err.code === 'unimplemented') {
+          console.warn('Browser does not support persistence');
+        }
+      });
 
       // DOM elements
       const productsContainer = document.getElementById('productsContainer');
@@ -147,56 +216,87 @@
       const activeFilterArea = document.getElementById('activeFilterArea');
       const searchTermDisplay = document.getElementById('searchTermDisplay');
       const clearSearchBtn = document.getElementById('clearSearchBtn');
+      
+      // Lightbox elements
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const closeLightbox = document.getElementById('closeLightbox');
+      const prevImage = document.getElementById('prevImage');
+      const nextImage = document.getElementById('nextImage');
+      const imageCounter = document.getElementById('imageCounter');
 
-      // In‑memory store + search term
-      let allProducts = [];            // { id, ...data }
+      // State
+      let allProducts = [];
       let currentSearchTerm = '';
+      let currentLightboxProduct = null;
+      let currentLightboxIndex = 0;
 
-      // ------------------------------------------------------------------
-      //  Firestore listener with real‑time updates + cache.
-      //  'cache' causes the snapshot to fire immediately from local cache,
-      //  then only pulls new documents from server (if any).
-      // ------------------------------------------------------------------
-      db.collection('items')
-        .orderBy('title')
-        .onSnapshot({ includeMetadataChanges: true }, snapshot => {
-          // Handle doc changes efficiently: we can rebuild the array,
-          // but we'll just create a new array from snapshot (fast enough).
-          // This ensures we always have the latest data merged from cache + server.
-          const newProducts = [];
-          snapshot.forEach(doc => {
-            newProducts.push({ id: doc.id, ...doc.data() });
-          });
+      // Close lightbox
+      closeLightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
 
-          // Check if metadata indicates this is from cache only (first load)
-          const isFromCache = snapshot.metadata.fromCache;
-          if (isFromCache) {
-            console.log('📦 Loaded from cache (instant)');
-          } else {
-            console.log('🌐 Updated from server (new changes)');
+      // Navigate lightbox
+      prevImage.addEventListener('click', () => {
+        if (currentLightboxProduct && currentLightboxProduct.images) {
+          currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxProduct.images.length) % currentLightboxProduct.images.length;
+          updateLightboxImage();
+        }
+      });
+
+      nextImage.addEventListener('click', () => {
+        if (currentLightboxProduct && currentLightboxProduct.images) {
+          currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxProduct.images.length;
+          updateLightboxImage();
+        }
+      });
+
+      function updateLightboxImage() {
+        if (currentLightboxProduct && currentLightboxProduct.images) {
+          lightboxImage.src = currentLightboxProduct.images[currentLightboxIndex];
+          imageCounter.textContent = `${currentLightboxIndex + 1} / ${currentLightboxProduct.images.length}`;
+        }
+      }
+
+      // Open lightbox
+      function openLightbox(product, index) {
+        currentLightboxProduct = product;
+        currentLightboxIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+      }
+
+      // Listen for real-time updates
+      db.collection('items').orderBy('title').onSnapshot({ includeMetadataChanges: true }, snapshot => {
+        allProducts = [];
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          // Handle both new format (images array) and old format (single imageUrl)
+          if (!data.images && data.imageUrl) {
+            data.images = [data.imageUrl];
+          } else if (!data.images) {
+            data.images = [];
           }
-
-          allProducts = newProducts;
-          applyFilterAndRender();       // render with current search term
-        }, error => {
-          console.error('Listener error', error);
-          productsContainer.innerHTML = `<div class="no-products">⚠️ Failed to load products.</div>`;
+          allProducts.push({ id: doc.id, ...data });
         });
+        applyFilterAndRender();
+      }, error => {
+        console.error('Listener error', error);
+        productsContainer.innerHTML = `<div class="no-products">⚠️ Failed to load products.</div>`;
+      });
 
-      // --------------------------------------------------------------
-      //  Render based on currentSearchTerm (title search)
-      // --------------------------------------------------------------
+      // Filter and render
       function applyFilterAndRender() {
         const term = currentSearchTerm.trim().toLowerCase();
         let filtered = allProducts;
 
         if (term !== '') {
           filtered = allProducts.filter(p => 
-            (p.title && p.title.toLowerCase().includes(term))
+            p.title && p.title.toLowerCase().includes(term)
           );
         }
 
-        // update filter UI
+        // Update filter UI
         if (term !== '') {
           searchTermDisplay.innerText = term;
           activeFilterArea.style.display = 'flex';
@@ -207,50 +307,54 @@
         renderProducts(filtered);
       }
 
-      // Generate dummy multiple‑photo dots (same image, just indicator)
-      function getMultipleImageUrls(mainUrl) {
-        return [mainUrl, mainUrl, mainUrl]; // same image for all dots
-      }
-
-      function renderProducts(items) {
-        if (!items || items.length === 0) {
-          productsContainer.innerHTML = `<div class="no-products"><i class="fas fa-box-open" style="font-size:2.5rem; opacity:0.4;"></i><br />No products found. Try a different search.</div>`;
+      // Render products with gallery
+      function renderProducts(products) {
+        if (!products || products.length === 0) {
+          productsContainer.innerHTML = `<div class="no-products"><i class="fas fa-box-open" style="font-size:2.5rem; opacity:0.4;"></i><br />No products found.</div>`;
           return;
         }
 
         let html = '';
-        items.forEach(prod => {
-          const title = prod.title || 'Product';
-          const price = prod.price || 0;
-          const discount = prod.discount || 0;
+        products.forEach(product => {
+          const images = product.images || [];
+          const mainImage = images.length > 0 ? images[0] : 'https://via.placeholder.com/300?text=No+Image';
+          const title = product.title || 'Product';
+          const price = product.price || 0;
+          const discount = product.discount || 0;
           const finalPrice = discount ? Math.round(price * (1 - discount/100)) : price;
           const oldPrice = discount ? price : null;
-          const affiliateLink = prod.affiliateLink || '#';
-          const imageUrl = prod.imageUrl || 'https://via.placeholder.com/260x260?text=AliExpress';
+          const affiliateLink = product.affiliateLink || '#';
 
-          // multi image simulation (three dots)
-          const imagesArray = getMultipleImageUrls(imageUrl);
-          const activeIndex = 0; // first dot active
+          // Generate thumbnails
+          let thumbnails = '';
+          images.slice(0, 5).forEach((img, idx) => {
+            thumbnails += `<img src="${img}" onclick="changeProductImage('${product.id}', ${idx})" onmouseover="changeProductImage('${product.id}', ${idx})" title="View image ${idx+1}">`;
+          });
 
           html += `
-            <div class="product-card" data-id="${prod.id}">
-              <div class="image-wrapper">
-                <img class="product-image" src="${imageUrl}" alt="${title}" loading="lazy">
-                <div class="multi-image-indicator">
-                  <span class="dot ${activeIndex === 0 ? 'active' : ''}"></span>
-                  <span class="dot ${activeIndex === 1 ? 'active' : ''}"></span>
-                  <span class="dot ${activeIndex === 2 ? 'active' : ''}"></span>
+            <div class="product-card" data-id="${product.id}">
+              <div class="gallery-container">
+                <img src="${mainImage}" class="main-image" id="main-${product.id}" onclick="openProductLightbox('${product.id}', 0)" style="cursor: pointer;">
+                ${images.length > 1 ? `
+                  <div class="gallery-nav">
+                    <div class="nav-arrow" onclick="event.stopPropagation(); navigateGallery('${product.id}', -1)"><i class="fas fa-chevron-left"></i></div>
+                    <div class="nav-arrow" onclick="event.stopPropagation(); navigateGallery('${product.id}', 1)"><i class="fas fa-chevron-right"></i></div>
+                  </div>
+                  <div class="image-counter">${images.length} photos</div>
+                ` : ''}
+                <div class="thumbnail-strip" id="thumbs-${product.id}">
+                  ${thumbnails}
                 </div>
               </div>
               <div class="product-info">
                 <div class="product-title">${escapeHtml(title)}</div>
                 <div class="price-row">
-                  <span class="current-price">KES ${finalPrice} <small>~ $${(finalPrice/130).toFixed(2)}</small></span>
-                  ${oldPrice ? `<span class="old-price">KES ${oldPrice}</span>` : ''}
+                  <span class="current-price">KES ${finalPrice.toLocaleString()}</span>
+                  ${oldPrice ? `<span class="old-price">KES ${oldPrice.toLocaleString()}</span>` : ''}
                 </div>
                 ${discount ? `<div class="discount-badge">-${discount}%</div>` : ''}
                 <div class="shipping"><i class="fas fa-truck"></i> Free shipping</div>
-                <a href="${affiliateLink}" target="_blank" rel="nofollow" class="order-btn"><i class="fas fa-bolt"></i> Order now</a>
+                <a href="${affiliateLink}" target="_blank" rel="nofollow" class="order-btn"><i class="fas fa-bolt"></i> Buy Now</a>
               </div>
             </div>
           `;
@@ -259,18 +363,67 @@
         productsContainer.innerHTML = html;
       }
 
+      // Gallery navigation functions (will be attached to window for onclick access)
+      window.changeProductImage = function(productId, index) {
+        const product = allProducts.find(p => p.id === productId);
+        if (product && product.images && product.images[index]) {
+          const mainImg = document.getElementById(`main-${productId}`);
+          if (mainImg) {
+            mainImg.src = product.images[index];
+          }
+          
+          // Update active thumbnail
+          const thumbContainer = document.getElementById(`thumbs-${productId}`);
+          if (thumbContainer) {
+            const thumbs = thumbContainer.querySelectorAll('img');
+            thumbs.forEach((thumb, i) => {
+              if (i === index) {
+                thumb.style.borderColor = '#ff6a00';
+              } else {
+                thumb.style.borderColor = 'transparent';
+              }
+            });
+          }
+        }
+      };
+
+      window.navigateGallery = function(productId, direction) {
+        const product = allProducts.find(p => p.id === productId);
+        if (!product || !product.images) return;
+        
+        const currentMain = document.getElementById(`main-${productId}`);
+        if (!currentMain) return;
+        
+        const currentSrc = currentMain.src;
+        const currentIndex = product.images.findIndex(img => img === currentSrc);
+        if (currentIndex === -1) return;
+        
+        const newIndex = (currentIndex + direction + product.images.length) % product.images.length;
+        window.changeProductImage(productId, newIndex);
+      };
+
+      window.openProductLightbox = function(productId, index) {
+        const product = allProducts.find(p => p.id === productId);
+        if (product) {
+          openLightbox(product, index);
+        }
+      };
+
+      // Escape HTML
       function escapeHtml(unsafe) {
         if (!unsafe) return unsafe;
         return unsafe.replace(/[&<>"]/g, function(m) {
-          if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; if(m === '"') return '&quot;';
+          if(m === '&') return '&amp;';
+          if(m === '<') return '&lt;';
+          if(m === '>') return '&gt;';
+          if(m === '"') return '&quot;';
           return m;
         });
       }
 
-      // search handlers
+      // Search handlers
       function performSearch() {
-        const term = searchInput.value.trim();
-        currentSearchTerm = term;
+        currentSearchTerm = searchInput.value.trim();
         applyFilterAndRender();
       }
 
@@ -285,7 +438,26 @@
         applyFilterAndRender();
       });
 
+      // Keyboard navigation for lightbox
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+          lightbox.classList.remove('active');
+        } else if (e.key === 'ArrowLeft') {
+          prevImage.click();
+        } else if (e.key === 'ArrowRight') {
+          nextImage.click();
+        }
+      });
+
+      // Click outside to close lightbox
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('active');
+        }
+      });
     })();
   </script>
 </body>
-  </html>
+</html>
